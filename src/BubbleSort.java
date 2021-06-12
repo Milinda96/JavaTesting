@@ -1,17 +1,29 @@
 public class BubbleSort {
-    public static void main(String args[]) {
-        int a[] = { 10, 25, 266, 66, 45, 5599, 3, 87, 99, 5 };
-        for (int i = 0; i < 10; i++) {
-            for (int j = 0; j < 10; j++) {
-                if (a[i] < a[j]) {
-                    int temp = a[i];
-                    a[i] = a[j];
-                    a[j] = temp;
+    void bubblesort(int arr[]) {
+        int n = arr.length;
+        for (int i = 0; i < n-1; i++) {
+            for (int j = 0; j < n-i-1; j++) {
+                if (arr[j] > arr[j+1]) {
+                    int temp = arr[j];
+                    arr[j] = arr[j + 1];
+                    arr[j + 1] = temp;
                 }
             }
         }
-        for (int i = 0; i < 10; i++) {
-            System.out.println(a[i]);
+    }
+
+    void printArray(int arr[]) {
+        int n= arr.length;
+        for (int i = 0; i < n; ++i) {
+            System.out.println(arr[i]);
         }
+    }
+
+    public static void main(String args[]) {
+        BubbleSort bb = new BubbleSort();
+        int arr[] = {44, 55, 68, 66, 22, 1, 36};
+        bb.bubblesort(arr);
+        System.out.println("Sorted Array");
+        bb.printArray(arr);
     }
 }
